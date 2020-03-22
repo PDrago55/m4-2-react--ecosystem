@@ -12,7 +12,7 @@ All routes are defined in the React application.
 import {Route} from 'react-router-dom';
 
 <Route path="/about">
-  <About />
+  <About /> ///goes to path /about and renders the about page right below it...
 </Route>
 <Route path="/blog">
   <Blog />
@@ -42,7 +42,7 @@ What gets rendered in the following snippets?
 
 ```jsx
 <div>
-  <Route exact={true} path="/">
+  <Route exact={true} path="/"> //exact={true} means that the path is only true if it is with a 'backslash'
     Home
   </Route>
   <Route path="/about">
@@ -57,7 +57,7 @@ Current URL: http://localhost:3000/about
 
 ```jsx
 <div>
-  <Route path="/items/:itemId">
+  <Route path="/items/:itemId"> // /:itemId is the url params
     Item detail page
   </Route>
   <Route path="/items">
@@ -134,6 +134,8 @@ import { Link } from 'react-router-dom';
 # Question
 
 Why use `<Link to="...">` instead of `<a href="...">`?
+
+///link does not reload the page so it then maintains the 'state' of the page....
 
 ---
 

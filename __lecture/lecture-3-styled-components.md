@@ -10,7 +10,7 @@
 ```jsx
 import styled from 'styled-components';
 
-const Button = styled.button`
+const StyledButton = styled.button`  ///styled.p || styled.li || styled.div etc
   background: blueviolet;
   border: none;
   padding: 16px 32px;
@@ -18,9 +18,9 @@ const Button = styled.button`
   font-size: 21px;
   border-radius: 2px;
 `;
-
+// back ticks are used to use CSS styling in JS
 ReactDOM.render(
-  <Button>Hello World</Button>,
+  <StyledButton>Hello World</StyledButton>,
   document.querySelector('#root')
 );
 ```
@@ -101,11 +101,17 @@ Convert the following inline styles to styled-components
 
 
 ```jsx
-function App(props) {
+import styled from 'styled-components';
+const StyledWrapper = styled.div `
+  margin: 0 auto;
+  height: 300px;
+  `
+
+function App() {
   return (
-    <div className="wrapper">
+    <StyledWrapper>
       Hello World
-    </div>
+    </StyledWrapper>
   )
 }
 ```
@@ -133,14 +139,34 @@ function App(props) {
 ```
 
 ```jsx
+import styled from 'styled-components'
+const StyledButton = styled.button `
+  color: tomato;
+  font-weight: bold;
+  padding: 20px;
+  
+  &:hover, 
+  &:focus {
+    transform: translateY(-3px);
+    }
+    ///from Scott///
+    .icon {
+      width: 32px;
+      height: 32px;
+    }
+  `
+const StyledIcon = styled.img `
+width: 32px;
+height: 32px;
+`
 function IconButton(props) {
   return (
-    <button className="btn">
+    <StyledButton>
       <i className="icon">
         {props.icon}
       </i>
       {props.children}
-    </button>
+    <StyledButton>
   )
 }
 ```
@@ -186,6 +212,8 @@ function FantasticStory(props) {
 
 ### Global styles
 
+
+/// this is the equivalent of having a main CSS file...
 ```jsx
 import {createGlobalStyles} from 'styled-components';
 

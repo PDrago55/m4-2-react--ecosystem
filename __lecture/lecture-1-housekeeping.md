@@ -10,6 +10,14 @@ Warning: Each child in a list should have a unique "key" prop.
 Check the render method of `App`.
 in SomeComponent (at src/index.js:24)
 in App (at src/index.js:31)
+
+
+example: 
+
+const bacon = ({ items }) => (
+  {items.map(item) => <li key= {`id${item.text.replace('','-')`}}>{item.text}
+  </li>)}
+);
 ```
 
 ---
@@ -32,7 +40,7 @@ import Button from '../Button';
 
 ---
 
-There are also **named exports**
+There are also **NAMED exports**
 
 ```js
 // authentication-utils.js
@@ -85,14 +93,19 @@ export const MAGIC_NUMBER = 123;
 ```js
 // src/index.js
 import MAGIC_NUMBER from './data';
+
+//correction 
+import {MAGIC_NUMBER} from './data';
+
+//since its not default, we need to add squiggly brackets for imports
 ```
 
 ---
 
 ```js
 // src/data.js
-export const users = [];
-export const sessions = [];
+const users = [];
+const sessions = [];
 
 const data = { users, sessions };
 
@@ -101,14 +114,16 @@ export default data;
 
 ```js
 // src/index.js
-import {data, users} from './data';
+import data from './data';
 ```
 
 ---
 
 ```js
 // src/data.js
-export default const baseball = '⚾️';
+const baseball = '⚾️';
+
+export default baseball;
 
 ```
 

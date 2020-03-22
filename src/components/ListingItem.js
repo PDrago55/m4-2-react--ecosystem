@@ -2,7 +2,6 @@ import React from 'react';
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 
-import Button from './Button';
 
 const ListingItem = ({ item }) => {
     return (
@@ -16,6 +15,7 @@ const ListingItem = ({ item }) => {
         </CardLink>
     );
 };
+
 
 const CardLink = styled(Link)`
     text-decoration: none;
